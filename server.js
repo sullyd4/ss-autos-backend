@@ -10,7 +10,13 @@ const authRoutes = require('./routes/authRoutes'); // <-- IMPORT HERE
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://helpful-caramel-6cb159.netlify.app', // Your Netlify app's URL
+    optionsSuccessStatus: 200
+  };
+  
+  app.use(cors(corsOptions));
+  
 app.use(express.json());
 
 // Use Routes
